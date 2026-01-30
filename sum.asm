@@ -253,9 +253,13 @@ ra_done:
 	move	$v0,$t0		# return the number of values read in
 
 
-	lw	$ra, 0($sp)	# restore the ra from the stack
+	lw	$s1, 0($sp)	# restore the s1 from the stack
 	addi    $sp, $sp, 4
-	jr $ra # return from readarray
+	lw $s0, 0($sp) # restore s0 from the stack
+	addi $sp, $sp, 4
+	lw $ra, 0($sp) # restore ra from the stack
+	addi $sp, $sp, 4
+	jr $ra # return value from readarray
 # ###### END STUDENT CODE BLOCK 1 ######
 # ######################################
 

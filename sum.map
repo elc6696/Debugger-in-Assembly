@@ -1,8 +1,8 @@
 Load map
-Module entry point: 0x004001a0
+Module entry point: 0x004001b0
 
 Module:  sum.obj
- Text segment:  412 bytes, load point 0x00400000
+ Text segment:  428 bytes, load point 0x00400000
  Data segment:  128 bytes, load point 0x10000000
  Symbols:
             Name Section Mode    Value
@@ -32,12 +32,12 @@ Module:  sum.obj
            array   Data   R   0x10000000
 
 Module:  r2k_startup.obj
- Text segment:  64 bytes, load point 0x0040019c
+ Text segment:  64 bytes, load point 0x004001ac
  Data segment:  8 bytes, load point 0x10000080
  Symbols:
             Name Section Mode    Value
      __heap_size   Data   RG  0x10000084
        SYS_EXIT2          A   0x00000011
         SYS_SBRK          A   0x00000009
-  __r2k__entry__   Text   RG  0x004001a0
+  __r2k__entry__   Text   RG  0x004001b0
       __heap_ptr   Data   RG  0x10000080

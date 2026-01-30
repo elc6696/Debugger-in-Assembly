@@ -285,12 +285,16 @@
  253 018c 01001021		move	$v0,$t0		# return the number of values read in
  254 0190               
  255 0190               
- 256 0190 8FBF0000		lw	$ra, 0($sp)	# restore the ra from the stack
+ 256 0190 8FB10000		lw	$s1, 0($sp)	# restore the s1 from the stack
  257 0194 23BD0004		addi    $sp, $sp, 4
- 258 0198 03E00008		jr $ra # return from readarray
- 259 019c               # ###### END STUDENT CODE BLOCK 1 ######
- 260 019c               # ######################################
- 261 019c               
+ 258 0198 8FB00000		lw $s0, 0($sp) # restore s0 from the stack
+ 259 019c 23BD0004		addi $sp, $sp, 4
+ 260 01a0 8FBF0000		lw $ra, 0($sp) # restore ra from the stack
+ 261 01a4 23BD0004		addi $sp, $sp, 4
+ 262 01a8 03E00008		jr $ra # return value from readarray
+ 263 01ac               # ###### END STUDENT CODE BLOCK 1 ######
+ 264 01ac               # ######################################
+ 265 01ac               
 
 
     Name      F  Value   M V Sect.                   References
