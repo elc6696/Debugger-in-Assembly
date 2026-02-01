@@ -230,27 +230,27 @@ readarray:
 	addi	$sp, $sp, -4
 	sw	$s1, 0($sp)	# save s1 on stack
 
-	li	$t0,0		# t0 will hold the num. of ele. entered
-	move	$t1,$a0		# t1 is pointer to array
+	li	$s0,0		# s0 will hold the num. of ele. entered
+	move	$s1,$a0		# s1 is pointer to array
 ra_loop:
-	beq	$t0,$a1,ra_done	# done if num_ele == max allowed
+	beq	$s0,$a1,ra_done	# done if num_ele == max allowed
 
 	jal	readnumber
 
 	li	$t9,9999	# sentinal to leave loop
 	beq	$v0,$t9,ra_done
 
-	sw	$v0,0($t1)
+	sw	$v0,0($s1)
 
-	addi	$t1,$t1,4	# update pointer
-	addi	$t0,$t0,1	# and increment the count
+	addi	$s1,$s1,4	# update pointer
+	addi	$s0,$s0,1	# and increment the count
 	j	ra_loop
 ra_done:
 	li	$v0,PRINT_STRING
 	la	$a0,lf
 	syscall			# print a message
 
-	move	$v0,$t0		# return the number of values read in
+	move	$v0,$s0		# return the number of values read in
 
 
 	lw	$s1, 0($sp)	# restore the s1 from the stack
