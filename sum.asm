@@ -176,7 +176,7 @@ pa_loop:
 	la	$a0,space
 	syscall			# print a space
 
-	addi    $t1,$t1,4       # update pointer
+	addi    $t1,$t1,4       # update pointer (array elements are 4 bytes so must increment by 4)
 	addi	$t0,$t0,1	# and count
 	j	pa_loop
 done:
@@ -232,7 +232,7 @@ readarray:
 	sw	$s1, 0($sp)	# save s1 on stack
 
 	li	$s0,0		# s0 will hold the num. of ele. entered
-	move	$s1,$a0		# s1 is pointer to array
+	move	$s1,$a0		# s1 is pointer to array (modify all of $t0 and $t1 since readarray calls readnumber)
 ra_loop:
 	beq	$s0,$a1,ra_done	# done if num_ele == max allowed
 
@@ -260,7 +260,7 @@ ra_done:
 	addi $sp, $sp, 4
 	lw $ra, 0($sp) # restore ra from the stack
 	addi $sp, $sp, 4
-	jr $ra # return value from readarray
+	jr $ra # return value from readarray (ensure that function returns properly)
 # ###### END STUDENT CODE BLOCK 1 ######
 # ######################################
 

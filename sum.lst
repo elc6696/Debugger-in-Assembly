@@ -204,7 +204,7 @@
      00e0 34840000
  177 00e4 0000000C		syscall			# print a space
  178 00e8               
- 179 00e8 21290004		addi    $t1,$t1,4       # update pointer
+ 179 00e8 21290004		addi    $t1,$t1,4       # update pointer (array elements are 4 bytes so must increment by 4)
  180 00ec 21080001		addi	$t0,$t0,1	# and count
  181 00f0 08000032		j	pa_loop
  182 00f4               done:
@@ -263,7 +263,7 @@
  232 0154 AFB10000		sw	$s1, 0($sp)	# save s1 on stack
  233 0158               
  234 0158 34100000		li	$s0,0		# s0 will hold the num. of ele. entered
- 235 015c 00808821		move	$s1,$a0		# s1 is pointer to array
+ 235 015c 00808821		move	$s1,$a0		# s1 is pointer to array (modify all of $t0 and $t1 since readarray calls readnumber)
  236 0160               ra_loop:
  237 0160 12050007		beq	$s0,$a1,ra_done	# done if num_ele == max allowed
  238 0164               
@@ -292,7 +292,7 @@
  260 01a0 23BD0004		addi $sp, $sp, 4
  261 01a4 8FBF0000		lw $ra, 0($sp) # restore ra from the stack
  262 01a8 23BD0004		addi $sp, $sp, 4
- 263 01ac 03E00008		jr $ra # return value from readarray
+ 263 01ac 03E00008		jr $ra # return value from readarray (ensure that function returns properly)
  264 01b0               # ###### END STUDENT CODE BLOCK 1 ######
  265 01b0               # ######################################
  266 01b0               
