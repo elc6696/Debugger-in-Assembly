@@ -115,7 +115,8 @@ main:
 #
 
 	li 	$t0,0			# t0 loop counter
-	la	$t1,size		# t1 is number of elements read
+	la	$t1,size		# t1 is addr in mem of the size val
+	lw 	$t1,0($t1) 		# t1 is number of elements read
 
 	la	$s0,array		# s0 is pointer into array
 	li 	$t2,0			# t2 is the running total
