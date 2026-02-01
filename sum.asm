@@ -175,7 +175,7 @@ pa_loop:
 	la	$a0,space
 	syscall			# print a space
 
-	addi    $t1,$t1,1       # update pointer
+	addi    $t1,$t1,4       # update pointer
 	addi	$t0,$t0,1	# and count
 	j	pa_loop
 done:

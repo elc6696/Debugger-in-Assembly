@@ -203,7 +203,7 @@
      00dc 34840000
  176 00e0 0000000C		syscall			# print a space
  177 00e4               
- 178 00e4 21290001		addi    $t1,$t1,1       # update pointer
+ 178 00e4 21290004		addi    $t1,$t1,4       # update pointer
  179 00e8 21080001		addi	$t0,$t0,1	# and count
  180 00ec 08000031		j	pa_loop
  181 00f0               done:
